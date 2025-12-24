@@ -1,5 +1,4 @@
 import MovieCard from "@/app/movies/MovieCard";
-import AddToCartButton from "@/app/components/AddToCartButton";
 
 export default async function MovieDetailsPage({
   params,
@@ -22,9 +21,6 @@ export default async function MovieDetailsPage({
         imageHeight={780}
         showReleaseDate={true}
       />
-      <div className="mt-4 flex justify-end">
-        <AddToCartButton movie={movie} />
-      </div>
     </div>
   );
 }

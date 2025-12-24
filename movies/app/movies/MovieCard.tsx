@@ -36,7 +36,7 @@ export default function MovieCard({
       />
       <div className="p-4 flex flex-col gap-3.5">
         <h2 className="text-lg font-bold mb-2 text-blue-400 hover:text-blue-600">
-          <Link href={`movie/${movie.id}`}>{movie.title}</Link>
+          <Link href={`/movie/${movie.id}`}>{movie.title}</Link>
         </h2>
         {showReleaseDate && movie.release_date && (
           <p className="mb-2 capitalize">
@@ -66,7 +66,7 @@ export default function MovieCard({
           {showButton && (
             <Link
               className="bg-blue-600 py-1 px-3 font-bold text-white rounded-sm cursor-pointer hover:bg-blue-800 capitalize"
-              href={`/movie/${movie.id}`}
+              href={`movie/${movie.id}`}
             >
               View details
             </Link>

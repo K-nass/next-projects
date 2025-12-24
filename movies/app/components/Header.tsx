@@ -1,8 +1,14 @@
-import { Heart } from "lucide-react";
+"use client";
+
+import { Heart, ShoppingBag } from "lucide-react";
 import Logo from "./Logo";
 import Button from "./Button";
+import Link from "next/link";
+import { useCart } from "../context/CartContext";
 
 export default function Header() {
+  const { totalItems } = useCart();
+
   return (
     <nav className="py-4">
       <ul className="flex justify-between items-center">
@@ -11,6 +17,14 @@ export default function Header() {
         </li>
         <li>
           <div className="flex justify-between items-center gap-5">
+            <Link href="/cart" className="cursor-pointer relative">
+              <ShoppingBag />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
             <button className="cursor-pointer">
               <Heart />
             </button>
@@ -23,7 +37,7 @@ export default function Header() {
               />
             </span>
             <span>
-              <Button label="search"/>
+              <Button label="search" />
             </span>
           </div>
         </li>
